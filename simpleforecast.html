@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.8/handlebars.min.js"></script>
+  <script src="config.js"></script>
+
+  <title>simpleForecast</title>
+</head>
+
+<body>
+  <form id="citySearch">
+    City, State/Country:
+    <input type="text" name="search">
+    <input type="submit" value="Search">
+  </form>
+  <div id="currentWeather"></div>
+  <div id="5DayForecast"></div>
+  <script id="current-template" type="text/x-handlebars-template">
+    <p>current weather for {{name}}, {{sys.country}}:</p>
+    <p>{{main.temp_min}} to {{main.temp_max}}, {{weather.0.description}}</p>
+  </script>
+  <script id="forecast-template" type="text/x-handlebars-template">
+    <p>five day forecast:</p>
+    <table>
+        <th>Date</th>
+        <th>Max Temps</th>
+        <th>Description + Icon</th>
+      </tr>
+      <!-- Generates a table row for each eighth list of weather data in the 3 hour forecast JSON. -->
+      {{#each list}}
+          <tr>
+            <td>{{dt_txt}}</td>
+            <td>{{main.temp_max}}</td>
+            <td>{{weather.0.description}} <img src="http://openweathermap.org/img/w/{{weather.0.icon}}.png" /></td>
+          </tr>
+      {{/each}}
+    </table>
+  </script>
+
+  <button class="tempChange" id="fahrenheit">&deg;F</button>
+  <button class="tempChange" id="kelvin">&deg;K</button>
+  <button class="tempChange" id="celsius">&deg;C</button>
+
+
+  <script src="simpleforecast.js"></script>
+</body>
+</html>
