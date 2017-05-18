@@ -1,0 +1,128 @@
+* {
+  font-size: 100%;
+  font-family: Helvetica;
+  text-align: center;
+  position: relative;
+}
+
+body {
+  background-color: white;
+}
+
+table {
+  border: 1px solid black;
+  background-color: #4cca3f;
+  margin: auto;
+}
+
+input[type=text] {
+  border: 1px solid #ccc;
+  width: 33%;
+  text-align: left;
+}
+
+p, tr, a {
+  color: black;
+  font-weight: bold;
+}
+
+td {
+  padding: 10px;
+}
+
+h2 {
+  color: #3e61a4;
+  font-size: 133%;
+}
+
+.description {
+  text-transform: capitalize;
+}
+
+li {
+  list-style-type: none;
+  display: inline-block;
+}
+
+#nav {
+  position: absolute;
+  top: -20px;
+  right: 0px;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  padding-right: 10px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+#modeiconContainer {
+  vertical-align: text-top;
+  background-image: url("sunmoonicons.png");
+  width: 30px;
+  height: 30px;
+}
+
+#modeiconContainer:hover {
+  background-position: left bottom;
+}
+
+#modeiconContainer.nightMode {
+  background-position: right top;
+}
+
+#modeiconContainer.nightMode:hover {
+  background-position: right bottom;
+}
+
+button {
+  color: black;
+  background-color: #d6d6d6;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-top: 10px;
+  font-size: 133%;
+}
+
+button:hover {
+  color: green;
+}
+
+body.nightMode {
+  background-color: #141414;
+}
+
+h2.nightMode {
+  color: white;
+}
+
+input[type=text].nightMode {
+  background-color: gray;
+  border: 1px solid white;
+}
+
+p.nightMode, tr.nightMode, a.nightMode {
+  color: #d6d6d6;
+}
+
+table.nightMode {
+  background-color: gray;
+  border: 1px solid white;
+}
+
+button.nightMode {
+  color: white;
+  background-color: #454342;
+  border: 1px solid white;
+  border-radius: 5px;
+  margin-top: 10px;
+  font-size: 133%;
+}
+
+button.nightMode:hover {
+  color: orange;
+}
