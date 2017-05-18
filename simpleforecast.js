@@ -33,6 +33,9 @@ $(function() {
   // Uses the API Key set up in config.js
   var cityUrlInfo = city + "&units=" + tempScale + "&appid=" + config.API_Key
 
+  // The CSS color scheme currently being used, with day mode as the default
+  var colorMode = "day"
+
   // Compiles both of my Handlebars templates.
   updateCurrent();
   updateForecast();
@@ -76,8 +79,15 @@ $(function() {
 
   // Execute these 2 functions to refresh both templates whenever the weather information needs to be updated.
   function updateCurrent(){
+    // Resets the color scheme to day mode to make sure the template and background colors are consistent
+    if (colorMode === "night") {
+      $(".colorChanged").removeClass("nightMode");
+      colorMode = "day";
+    }
+
     var template = $("#current-template").html();
     var templateScript = Handlebars.compile(template);
+
 
     $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" + cityUrlInfo, function(data){
       var compiledTemplate = templateScript(data);
@@ -130,6 +140,14 @@ $(function() {
   // Swaps the CSS between normal and night modes when that switch is clicked.
   $("#modeiconContainer").click(function() {
     $(".colorChanged").toggleClass("nightMode");
+
+    if (colorMode === "day") {
+      colorMode = "night";
+    }
+
+    else {
+      colorMode = "day";
+    }
   });
 
 });
