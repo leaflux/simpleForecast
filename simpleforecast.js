@@ -122,4 +122,14 @@ $(function() {
 //     }
 //   });
 
+  // Displays some information about the app when the About button is clicked.
+  $("#about").click(function() {
+    alert("Up to date weather information and forecasts by OpenWeatherMap.\nCreated with Javascript.");
+  });
+
+  // Swaps the CSS between normal and night modes when that switch is clicked.
+  $("#modeiconContainer").click(function() {
+    $(".colorChanged").toggleClass("nightMode");
+  });
+
 });
